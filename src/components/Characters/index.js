@@ -8,29 +8,58 @@ import './style.scss';
 export default function Characters() {
 
   const [characters, setCharacters] = React.useState([]);
+  const [ house, setHouse ] = React.useState([]);
+
+  // const dataCharac = []
+
+  // dataCharac.push(characters)
+  // dataCharac.push(house)
 
   useEffect(() => {
-      axios.get('https://anapioficeandfire.com/api/characters?limit=10')
+    getCharacters();
+    getHouses();
+  } , []);
+
+  const getCharacters = async () => {
+    await axios.get('https://anapioficeandfire.com/api/characters?pageSize=50')
     .then(response => {
-      console.log(response.data);
       const data = response.data;
       setCharacters(data);
-      return data;
+      console.log(data);
     }).catch(error => {
       console.log(error);
     })
-  } , []);
+  }
+
+  const getHouses = async () => {
+    await axios.get('https://anapioficeandfire.com/api/houses/')
+    .then(response => {
+      const data = response.data;
+      setHouse(data);
+      // console.log(data);
+    }
+    ).catch(error => {
+      console.log(error);
+    }
+    )
+  }
+
 
   return (
-    <div>Characters
-      <>
-        {
-          characters.map(character => {
-            return <Character key={character.url} character={character} />
-          }
-        )}
-        
-      </>
-    </div>
+      <div className='characters'>
+        <>
+          {
+            characters.map(character => {
+              return (
+                <Character
+                  key={character.url}
+                  index={character.url.split('characters/')[1]}
+                  character={character} />
+              )
+              }
+          )}
+          
+        </>
+      </div>
   );
 }
