@@ -1,7 +1,10 @@
 // == Import
+import { NavLink } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import titlePage from '../../images/titlePage.png';
 import parchemin from '../../images/fond-parchemin.jpeg';
 import Characters from 'src/components/Characters';
+import Detail from 'src/components/Characters/detail';
 
 import './style.scss';
 
@@ -15,11 +18,19 @@ export default function App() {
       <img src={parchemin} alt="titlePage" />
     </div>
 
-    <div className="app__header">
-      <img src={titlePage} alt={titlePage} />
-      <h1 className='app__header__title'>Game of Thrones</h1>
-    </div>
-    <Characters />
+    <NavLink to='/'>
+      <div className="app__header">
+        <img src={titlePage} alt={titlePage} />
+        <h1 className='app__header__title'>Game of Thrones</h1>
+      </div>
+    </NavLink>
+
+    <BrowserRouter>
+      <Switch>
+        <Route path='/' component={Characters} />
+        <Route path='/detail/:id' component={Detail} />
+      </Switch>
+    </BrowserRouter>
   </div>
   )
 };

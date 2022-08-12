@@ -21,7 +21,6 @@ export default function Characters() {
     .then(response => {
       const data = response.data;
       setCharacters(data);
-      console.log(data);
     }).catch(error => {
       console.log(error);
     })
