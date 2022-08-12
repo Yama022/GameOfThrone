@@ -28,7 +28,9 @@ export default function App() {
     <BrowserRouter>
       <Switch>
         <Route path='/' component={Characters} />
-        <Route path='/detail/:id' component={Detail} />
+      </Switch>
+      <Switch>
+        <Route path='/characters/:id' component={Detail} />
       </Switch>
     </BrowserRouter>
   </div>
