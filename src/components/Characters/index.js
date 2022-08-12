@@ -10,10 +10,6 @@ export default function Characters() {
   const [characters, setCharacters] = React.useState([]);
   const [ house, setHouse ] = React.useState([]);
 
-  // const dataCharac = []
-
-  // dataCharac.push(characters)
-  // dataCharac.push(house)
 
   useEffect(() => {
     getCharacters();
@@ -36,7 +32,6 @@ export default function Characters() {
     .then(response => {
       const data = response.data;
       setHouse(data);
-      // console.log(data);
     }
     ).catch(error => {
       console.log(error);
