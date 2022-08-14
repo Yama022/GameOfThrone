@@ -1,12 +1,41 @@
 .character {
   width: 100%;
   font-size: 2.5em;
-  display: block;
   &__content {
     width: 45%;
     margin: auto;
     margin-bottom: 1.5rem;
     border: 1px solid black;
     padding: 1rem;
+  }
+}
+
+
+.detail {
+  width: 100%;
+  font-size: 2.5em;
+  &__content {
+    width: 45%;
+    margin: auto;
+    margin-bottom: 1.5rem;
+    border: 1px solid black;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    &__name {
+      font-size: 4em;
+    }
+    &__aliases {}
+    &__actor {}
+    &__gender {}
+    &__born {}
+    &__died {}
+    &__books {
+      width: 80%;
+      display: flex;
+      flex-wrap: wrap;
+      margin: auto;
+    }
   }
 }

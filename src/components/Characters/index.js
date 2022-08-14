@@ -17,7 +17,7 @@ export default function Characters() {
   } , []);
 
   const getCharacters = async () => {
-    await axios.get('https://anapioficeandfire.com/api/characters?pageSize=50')
+    await axios.get('https://anapioficeandfire.com/api/characters?limit=5')
     .then(response => {
       const data = response.data;
       setCharacters(data);
@@ -40,7 +40,7 @@ export default function Characters() {
 
 
   return (
-      <div className='characters'>
+      <div className='characters' id='content'>
         <>
           {
             characters.map(character => {

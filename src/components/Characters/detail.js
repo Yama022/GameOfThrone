@@ -21,16 +21,16 @@ export default function Detail(props) {
       const data = response.data;
       setCharacters(data);
       console.log(data, 'data')
+      
     }).catch(error => {
       console.log(error);
     })
   }
 
   const charactersHidden = () => {
-    const charac = document.querySelector('.character');
-    console.log(charac, 'charac');
+    const charac = document.querySelector('.characters');
+    charac.style.display = 'none';
   }
-
 
 
   return (
@@ -43,7 +43,7 @@ export default function Detail(props) {
         </div>
 
         <div className="detail__content__aliases">
-          <h3>{characters.aliases}</h3>
+          <h3>aliases : {characters.aliases}</h3>
         </div>
 
         <div className="detail__content__actor">
@@ -60,6 +60,14 @@ export default function Detail(props) {
 
         <div className="detail__content__died">
           <h3>{characters.died}</h3>
+        </div>
+
+        <div className="detail__content__books">
+          <h3>{characters.books}</h3>
+        </div>
+
+        <div className="detail__content__tv">
+          <h3>{characters.tvSeries}</h3>
         </div>
 
       </div>
