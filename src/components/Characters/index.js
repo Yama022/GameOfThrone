@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 import Character from './character';
@@ -9,7 +9,7 @@ export default function Characters() {
 
   const [characters, setCharacters] = React.useState([]);
   const [ house, setHouse ] = React.useState([]);
-
+  const [filteredData, setFilteredData] = useState()
 
   useEffect(() => {
     getCharacters();
@@ -26,6 +26,7 @@ export default function Characters() {
     .then(response => {
       const data = response.data;
       setCharacters(data);
+      console.log(data, 'data')
     }).catch(error => {
       console.log(error);
     })
@@ -49,22 +50,36 @@ export default function Characters() {
 
   const searchInput = (e) => {
     console.log(e.target.value);
+    const { value } = e.target
+    const searchResult = characters.filter((item) => item.name.toLowerCase().includes(value.toLowerCase()))
+    setFilteredData(searchResult)
+    console.log(searchResult, 'searchResult');
   }
 
   return (
       <div className='characters' id='content'>
-        <input type="search" placeholder='search a character ...' onChange={searchInput}/>
+        <input type="text" name='inputSearch' placeholder='search a character ...' onChange={searchInput}/>
         <>
           {
-            characters.map(character => {
+            filteredData ? filteredData.map(character => {
               return (
-                <Character
-                  key={character.url}
-                  index={character.url.split('characters/')[1]}
-                  character={character} />
-              )
-              }
-          )}
+                      <Character
+                        key={character.url}
+                        index={character.url.split('characters/')[1]}
+                        character={character} />
+                    )
+            }
+            ) : characters.map(character => {
+                  return (
+                    <Character
+                      key={character.url}
+                      index={character.url.split('characters/')[1]}
+                      character={character} />
+                  )
+                  }
+            )
+          }
+
           
         </>
         <button onClick={seeMore} className='characters__button'>
