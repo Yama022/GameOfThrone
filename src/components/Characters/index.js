@@ -47,8 +47,13 @@ export default function Characters() {
     console.log('see more');
   }
 
+  const searchInput = (e) => {
+    console.log(e.target.value);
+  }
+
   return (
       <div className='characters' id='content'>
+        <input type="search" placeholder='search a character ...' onChange={searchInput}/>
         <>
           {
             characters.map(character => {
