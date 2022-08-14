@@ -62,8 +62,8 @@ export default function Characters() {
           )}
           
         </>
-        <button onClick={seeMore}>
-          Voir plus
+        <button onClick={seeMore} className='characters__button'>
+          See More
         </button>
       </div>
   );
