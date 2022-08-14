@@ -26,7 +26,6 @@ export default function Characters() {
     .then(response => {
       const data = response.data;
       setCharacters(data);
-      console.log(data, 'data')
     }).catch(error => {
       console.log(error);
     })
@@ -49,11 +48,9 @@ export default function Characters() {
   }
 
   const searchInput = (e) => {
-    console.log(e.target.value);
     const { value } = e.target
     const searchResult = characters.filter((item) => item.name.toLowerCase().includes(value.toLowerCase()))
     setFilteredData(searchResult)
-    console.log(searchResult, 'searchResult');
   }
 
   return (
