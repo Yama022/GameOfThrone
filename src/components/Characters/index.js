@@ -17,7 +17,12 @@ export default function Characters() {
   } , []);
 
   const getCharacters = async () => {
-    await axios.get('https://anapioficeandfire.com/api/characters?limit=5')
+    await axios.get('https://anapioficeandfire.com/api/characters?page=117&pageSize=5')
+    // page=211&pageSize=5 = tyrion lannister
+    // page=205&pageSize=5 = theon greyjoy
+    // page=192&pageSize=5 = sansa stark
+    // page=181 = Robert Baratheon
+    // page=117 = Jon Snow
     .then(response => {
       const data = response.data;
       setCharacters(data);
@@ -38,6 +43,9 @@ export default function Characters() {
     )
   }
 
+  const seeMore = () => {
+    console.log('see more');
+  }
 
   return (
       <div className='characters' id='content'>
@@ -54,6 +62,9 @@ export default function Characters() {
           )}
           
         </>
+        <button onClick={seeMore}>
+          Voir plus
+        </button>
       </div>
   );
 }
