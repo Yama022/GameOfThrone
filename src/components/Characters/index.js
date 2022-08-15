@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
 import Character from './character';
 
 import './style.scss';
@@ -55,9 +54,11 @@ export default function Characters() {
     setFilteredData(searchResult)
   }
 
+
   return (
       <div className='characters' id='content'>
         <input type="text" name='inputSearch' placeholder='search a character ...' onChange={searchInput}/>
+
         <>
           {
             filteredData ? filteredData.map(character => {

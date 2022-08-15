@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import './style.scss';
 
 export default function Character({ character }) {
@@ -11,7 +11,6 @@ export default function Character({ character }) {
 
       <div className='character__content'>
 
-        
 
         <div className='character__content__name'>
           <h2>{character.name}</h2>
