@@ -13,7 +13,6 @@ export default function Detail() {
       .then((response) => {
         const { data } = response;
         setCharacters(data);
-        console.log(data, 'data');
       }).catch((error) => {
         console.log(error);
       });
@@ -33,7 +32,12 @@ export default function Detail() {
         </div>
 
         <div className="detail__content__aliases">
-          <h3>aliases : {characters?.aliases}</h3>
+          {
+            
+            characters?.aliases.every(x => x.length>0) && (
+            <h3>aliases : {characters?.aliases }</h3> 
+            )
+          }
         </div>
 
         <div className="detail__content__actor">
