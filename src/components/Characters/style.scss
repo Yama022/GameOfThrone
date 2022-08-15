@@ -15,10 +15,19 @@
   font-size: 2.5em;
   &__content {
     width: 45%;
+    height: 100%;
     margin: auto;
     margin-bottom: 1.5rem;
     border: 1px solid black;
     padding: 1rem;
+    &__chart {
+      width: 70%;
+      margin: auto;
+      // height: 100%;
+      border: 1px solid black;
+      padding: 1em;
+      color: white;
+    }
   }
   
 }
@@ -51,3 +60,16 @@
     }
   }
 }
+
+
+.stats {
+  width: 60%;
+  margin: auto;
+  display: flex;
+  &__chart {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
