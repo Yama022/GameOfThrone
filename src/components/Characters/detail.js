@@ -53,7 +53,7 @@ export default function Detail() {
         </div>
 
         <div className="detail__content__books">
-          <h3>{characters?.books}</h3>
+          <h3>{characters?.books.join(', ').replaceAll('https://anapioficeandfire.com/api/', '').replaceAll('s/', ' ')}</h3>
         </div>
 
         <div className="detail__content__tv">

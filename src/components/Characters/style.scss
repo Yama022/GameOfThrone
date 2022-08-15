@@ -1,6 +1,8 @@
 
 
 .characters {
+  position: relative;
+  z-index: 3;
   button {
     padding: .5em;
     margin: 1em;
@@ -25,6 +27,7 @@
 .detail {
   width: 100%;
   font-size: 2.5em;
+  position: relative;
   &__content {
     width: 45%;
     margin: auto;
@@ -44,8 +47,6 @@
     &__died {}
     &__books {
       width: 80%;
-      display: flex;
-      flex-wrap: wrap;
       margin: auto;
     }
   }

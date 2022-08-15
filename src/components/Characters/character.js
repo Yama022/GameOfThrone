@@ -37,6 +37,10 @@ export default function Character({ character }) {
           <h3>{character.died}</h3>
         </div>
 
+        <div className="character__content__books">
+          <h3>{character.books.join(', ').replaceAll('https://anapioficeandfire.com/api/', '').replaceAll('s/', ' ')}</h3>
+        </div>
+
       </div>
         </Link>
 

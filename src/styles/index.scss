@@ -3,11 +3,23 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Archivo&family=Tangerine&display=swap');
 
+html {
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #805433;
+    height: 20%;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    background: #110100;
+    }
+}
+
 body {
   font-family: 'Tangerine', cursive;
   width: 100%;
+  overflow-y: scroll;
 }
-
 button {
   font-family: 'Tangerine', cursive;
   font-size: 2.5em;

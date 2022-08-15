@@ -10,6 +10,7 @@ export default function Characters() {
   const [characters, setCharacters] = React.useState([]);
   const [ house, setHouse ] = React.useState([]);
   const [filteredData, setFilteredData] = useState()
+  const [page, setPage] = useState(117);
 
   useEffect(() => {
     getCharacters();
@@ -17,15 +18,11 @@ export default function Characters() {
   } , []);
 
   const getCharacters = async () => {
-    await axios.get('https://anapioficeandfire.com/api/characters?page=117&pageSize=5')
-    // page=211&pageSize=5 = tyrion lannister
-    // page=205&pageSize=5 = theon greyjoy
-    // page=192&pageSize=5 = sansa stark
-    // page=181 = Robert Baratheon
-    // page=117 = Jon Snow
+    await axios.get(`https://anapioficeandfire.com/api/characters?page=${page}&pageSize=5`)
     .then(response => {
       const data = response.data;
       setCharacters(data);
+      setPage(page + 1);
     }).catch(error => {
       console.log(error);
     })
@@ -44,7 +41,12 @@ export default function Characters() {
   }
 
   const seeMore = () => {
-    console.log('see more');
+    setPage(page + 1);
+    axios.get(`https://anapioficeandfire.com/api/characters?page=${page}&pageSize=5`)
+    .then(response => {
+      const data = response.data;
+      setCharacters([...characters, ...data]);
+    })
   }
 
   const searchInput = (e) => {

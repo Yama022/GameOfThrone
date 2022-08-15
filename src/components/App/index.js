@@ -6,6 +6,7 @@ import Characters from 'src/components/Characters';
 import Detail from 'src/components/Characters/detail';
 import titlePage from '../../images/titlePage.png';
 import parchemin from '../../images/fond-parchemin.jpeg';
+import GoT from '../../images/GoT.png';
 
 import './style.scss';
 
@@ -14,6 +15,14 @@ export default function App() {
   return (
     <div className="app">
       <BrowserRouter>
+      <div className="app--backgound"
+        style={{
+          backgroundImage:`url(${GoT})`,
+          backgroundSize: 'cover',
+          backgroundAttachment: 'fixed',
+          minHeight: '100vh',
+          }}
+      >
         <div className="app--image">
           <img src={parchemin} alt="titlePage" />
         </div>
@@ -29,6 +38,8 @@ export default function App() {
           <Route exact path="/" component={Characters} />
           <Route exact path="/characters/:id" component={Detail} />
         </Switch>
+
+        </div>
       </BrowserRouter>
     </div>
   );
