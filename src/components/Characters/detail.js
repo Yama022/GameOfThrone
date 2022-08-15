@@ -35,7 +35,11 @@ export default function Detail() {
           {
             
             characters?.aliases.every(x => x.length>0) && (
-            <h3>aliases : {characters?.aliases }</h3> 
+            <h3>
+              {characters?.aliases.length > 1 ?
+              "Aliases " : "Alias "}
+              : {characters?.aliases }
+            </h3> 
             )
           }
         </div>
