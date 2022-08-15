@@ -76,8 +76,6 @@ export default function Characters() {
                   }
             )
           }
-
-          
         </>
         <button onClick={seeMore} className='characters__button'>
           See More

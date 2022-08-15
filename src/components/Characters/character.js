@@ -1,17 +1,16 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './style.scss';
 
 export default function Character({ character }) {
-  const BaseURL = 'https://anapioficeandfire.com/api';
   return (
     <div  className='character'>
+        <Link
+          to={`/characters/${character.url.split('characters/')[1]}`}
+        >
 
       <div className='character__content'>
 
-        <NavLink
-          to={`/characters/${character.url.split('characters/')[1]}`}
-        >
         
 
         <div className='character__content__name'>
@@ -38,8 +37,8 @@ export default function Character({ character }) {
           <h3>{character.died}</h3>
         </div>
 
-        </NavLink>
       </div>
+        </Link>
 
     </div>
   );
