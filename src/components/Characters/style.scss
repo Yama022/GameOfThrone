@@ -44,6 +44,7 @@
       width: 80%;
       margin: auto;
     }
+    &__button {}
   }
   
 }
@@ -119,7 +120,10 @@
     }
     &__region {}
     &__weapon {}
-    &__arms {}
+    &__arms {
+      width: 75%;
+      margin: auto;
+    }
     &__seats {}
     &__words {
       width: 100%;
@@ -131,22 +135,29 @@
       width: 50%;
       display: flex;
       margin: auto;
-      justify-content: space-around;
+      justify-content: space-between;
       & h3 {
 
       }
     }
     &__members {
-      width: 70%;
-      margin: auto;
-      margin-top: 1rem;
+      width: 60%;
+      margin: 1rem auto auto auto;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      h3 {
+      &__member {
         width: 80%;
         display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
         margin: auto;
+      }
+      h3 {
+        width: 100%;
+        margin: auto;
+        padding-top: .2rem;
         font-size: .9em;
         padding-left: .2em;
       }

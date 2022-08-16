@@ -14,7 +14,7 @@ export default function Characters() {
 
   useEffect(() => {
     getCharacters();
-    getHouses();
+    // getHouses();
   } , []);
 
   const getCharacters = async () => {
@@ -28,17 +28,17 @@ export default function Characters() {
     })
   }
 
-  const getHouses = async () => {
-    await axios.get('https://anapioficeandfire.com/api/houses/')
-    .then(response => {
-      const data = response.data;
-      setHouse(data);
-    }
-    ).catch(error => {
-      console.log(error);
-    }
-    )
-  }
+  // const getHouses = async () => {
+  //   await axios.get('https://anapioficeandfire.com/api/houses/')
+  //   .then(response => {
+  //     const data = response.data;
+  //     setHouse(data);
+  //   }
+  //   ).catch(error => {
+  //     console.log(error);
+  //   }
+  //   )
+  // }
 
   const seeMore = () => {
     setPage(page + 1);
@@ -83,7 +83,7 @@ export default function Characters() {
           }
         </>
         <button onClick={seeMore} className='characters__button'>
-          See More
+          See More...
         </button>
       </div>
   );

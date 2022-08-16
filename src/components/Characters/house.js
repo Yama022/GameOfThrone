@@ -10,6 +10,9 @@ export default function House() {
 
   const [ house, setHouse ] = React.useState([]);
   const [characters, setCharacters] = React.useState([]);
+  const [filteredData, setFilteredData] = useState([]);
+  const [nameCharac, setNameCharac] = useState([]);
+  const [urlCharac, setUrlCharac] = useState([]);
 
   const scrollTop = () => {
     window.scrollTo(0, 0);
@@ -19,7 +22,6 @@ export default function House() {
     await axios.get(`https://anapioficeandfire.com/api/houses/${id}`)
     .then(response => {
       const data = response.data;
-      // console.log(data, 'data');
       setHouse(data);
 
     }
@@ -38,15 +40,54 @@ export default function House() {
       console.log(error);
     })
   }
+
+  const seeCharacters = async () => {
+    await axios.get(`https://anapioficeandfire.com/api/houses/${id}`)
+    .then(response => {
+      const data = response.data;
+      const characters = data.swornMembers;
+    const charactFiltered = characters.map(character => {
+      return (
+        character.slice(34)
+      )
+      }
+    )
+    setFilteredData(charactFiltered);
+
+    }
+    ).catch(error => {
+      console.log(error);
+    }
+    )
+
+    await axios.get(`https://anapioficeandfire.com/api/characters?pageSize=50`)
+    .then(response => {
+      const data = response.data;
+      const charactersName = data.map(character => {
+        return (
+          character.name
+        )})
+
+      const charactersUrl = data.map(character => {
+        return (
+          character.url.slice(34)
+        )})
+    setNameCharac(charactersName);
+    setUrlCharac(charactersUrl);
+    }
+    ).catch(error => {
+      console.log(error);
+    }
+    )
+  }
   
   useEffect(() => {
     getHouses();
     getCharacters();
     scrollTop();
+    seeCharacters();
   } , []);
 
-  console.log(house?.founder,'founder');
-  
 
   return (
     <div className='house'>
@@ -134,7 +175,8 @@ export default function House() {
 
         <div className="house__content__cadet">
         {
-          house?.cadetBranches ?  <span>Cadet : </span> : ''
+          house?.cadetBranches != 0 ?
+          <span>Cadet : </span> : <span></span>
         }
           {
             house?.cadetBranches ?  house.cadetBranches.map(
@@ -155,6 +197,7 @@ export default function House() {
 
         <div className='house__content__members'>
           <span>Members : </span>
+          <div className="house__content__members__member">
             {
               house?.swornMembers ?  house.swornMembers.map(
                 (member, index) => {
@@ -170,8 +213,49 @@ export default function House() {
                 }
               ) : ''
             }
-              
-  
+            
+              {/* TENTATIVE DE FILTRER LES MEMBRES ET AFFICHER SEULEMENT LES MEMBRES QUI SONT DANS LA LISTE DES MEMBRES.
+              IL FAUDRAIT POUVOIR FILTRER L'ENSEMBLE DES CHARACTERS/XXX POUR EN RÉCUPÉRER LE NAME ET LE URL. */}
+              {/* {
+              house?.swornMembers ?  house.swornMembers.map(
+                (member, index) => {
+                  if(member.slice(34) === filteredData[index]) {
+
+                  return (
+                    <Link
+                    to={`/${house.swornMembers[index].slice(34)}`}
+                    >
+                      {
+                        nameCharac.map(
+                          (name, index) => {
+                            console.log(name, 'name');
+                            if(member.slice(34) === urlCharac[index]) {
+                              return (
+                                <h3>
+                                  {name}
+                                </h3>
+                              )
+                            }
+                          }
+                        )
+                      }
+                    </Link>
+                  )
+                } else {
+                  return (
+                    <Link
+                    to={`/characters/${house.swornMembers[index].slice(34)}`}
+                    >
+                      <h3>
+                        {member.slice(34)}
+                      </h3>
+                    </Link>
+                  )
+                }
+                }
+              ) : ''
+            }  */}
+              </div>
         </div>
 
       </div>
