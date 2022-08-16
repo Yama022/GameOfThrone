@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import House from './house';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import './style.scss';
@@ -7,30 +9,34 @@ export default function Detail() {
   const { id } = useParams();
 
   const [characters, setCharacters] = useState(null);
+  const [house, setHouse] = useState(null);
 
   const getCharacters = async () => {
     await axios.get(`https://anapioficeandfire.com/api/characters/${id}`)
       .then((response) => {
         const { data } = response;
         setCharacters(data);
-        console.log(data, 'data');
       }).catch((error) => {
         console.log(error);
       });
   };
 
+  
   const scrollTop = () => {
     window.scrollTo(0, 0);
   };
-
+  
   useEffect(() => {
     getCharacters();
     scrollTop();
+    // getHouses();
   }, [id]);
+  
+  const url = characters?.allegiances.join(', ').replaceAll('https://anapioficeandfire.com/api/', '')
+  console.log(url, 'URL house');
 
   return (
     <div className="detail">
-
       <div className="detail__content">
 
         <div className="detail__content__name">
@@ -69,6 +75,10 @@ export default function Detail() {
           }
         </div>
 
+          <Link
+            to={`/houses/${characters?.allegiances.join(', ').replaceAll('https://anapioficeandfire.com/api/', '').replaceAll('houses/', '')}`}
+            // to={`/${url}`}
+          >
         <div className="detail__content__allegiances">
           {
             characters?.allegiances.every(x => x.length>0) && (
@@ -77,11 +87,13 @@ export default function Detail() {
                 {characters?.allegiances.length > 1 ?
                   "Allegiances " : "Allegiance "}
               </span>
-              : {characters?.allegiances.join(', ').replaceAll('https://anapioficeandfire.com/api/', '').replaceAll('s/', ' ')}
+              : 
+                {characters?.allegiances.join(', ').replaceAll('https://anapioficeandfire.com/api/', '').replaceAll('s/', ' ')}
             </h3>
             )
           }
         </div>
+          </Link>
 
         <div className="detail__content__actor">
           <h3>

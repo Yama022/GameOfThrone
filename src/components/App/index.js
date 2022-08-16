@@ -4,6 +4,7 @@ import {
 } from 'react-router-dom';
 import Characters from 'src/components/Characters';
 import Detail from 'src/components/Characters/detail';
+import House from 'src/components/Characters/house';
 import titlePage from '../../images/titlePage.png';
 import parchemin from '../../images/fond-parchemin.jpeg';
 import GoT from '../../images/GoT.png';
@@ -37,6 +38,7 @@ export default function App() {
         <Switch>
           <Route exact path="/" component={Characters} />
           <Route exact path="/characters/:id" component={Detail} />
+          <Route exact path="/houses/:id" component={House} />
         </Switch>
 
         </div>
