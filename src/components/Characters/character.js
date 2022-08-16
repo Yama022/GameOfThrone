@@ -5,7 +5,6 @@ import './style.scss';
 
 
 export default function Character({ character }) {
-  
 
   return (
     <div  className='character'>

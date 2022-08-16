@@ -17,7 +17,7 @@
     height: 100%;
     margin: auto;
     margin-bottom: 1.5rem;
-    border: 1px solid black;
+    border: 2px solid black;
     padding: 1rem;
     font-weight: bold;
     div:nth-child(1n+2) {
@@ -57,7 +57,7 @@
     width: 45%;
     margin: auto;
     margin-bottom: 1.5rem;
-    border: 1px solid black;
+    border: 3px solid black;
     padding: 1rem;
     display: flex;
     justify-content: space-between;
@@ -102,7 +102,56 @@
 }
 
 .house {
-  font-size: 5em;
+  width: 70%;
+  margin: auto;
+  position: relative;
+  z-index: 3;
+  &__content {
+    font-size: 2.2em;
+    font-weight: bold;
+    margin: auto;
+    &__name {
+      width: 80%;
+      margin: auto auto 2rem auto;
+      font-size: 3em;
+      border-bottom: 2px solid black;
+      padding-bottom: .7rem;
+    }
+    &__region {}
+    &__weapon {}
+    &__arms {}
+    &__seats {}
+    &__words {
+      width: 100%;
+      & h3 {
+        margin: auto;
+      }
+    }
+    &__cadet {
+      width: 50%;
+      display: flex;
+      margin: auto;
+      justify-content: space-around;
+      & h3 {
+
+      }
+    }
+    &__members {
+      width: 70%;
+      margin: auto;
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      h3 {
+        width: 80%;
+        display: flex;
+        margin: auto;
+        font-size: .9em;
+        padding-left: .2em;
+      }
+    }
+  }
 }
 
 .stats {

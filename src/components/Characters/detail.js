@@ -29,11 +29,8 @@ export default function Detail() {
   useEffect(() => {
     getCharacters();
     scrollTop();
-    // getHouses();
   }, [id]);
-  
-  const url = characters?.allegiances.join(', ').replaceAll('https://anapioficeandfire.com/api/', '')
-  console.log(url, 'URL house');
+
 
   return (
     <div className="detail">
@@ -77,7 +74,6 @@ export default function Detail() {
 
           <Link
             to={`/houses/${characters?.allegiances.join(', ').replaceAll('https://anapioficeandfire.com/api/', '').replaceAll('houses/', '')}`}
-            // to={`/${url}`}
           >
         <div className="detail__content__allegiances">
           {
@@ -139,10 +135,10 @@ export default function Detail() {
           {characters?.books.every(x => x.length>0) && (
             <h3>
                 <span>
-                  {characters?.books.length > 1 ?
-                    "Books " : "Book "}
-                </span>
-              : {characters?.books.join(', ').replaceAll('https://anapioficeandfire.com/api/', '').replaceAll('s/', ' ')}
+                  {characters?.books.length != 0 ?
+                    "Book(s) : " : ""}
+                </span> 
+              {characters?.books.join(', ').replaceAll('https://anapioficeandfire.com/api/', '').replaceAll('s/', ' ')}
             </h3>
           )}
         </div>
