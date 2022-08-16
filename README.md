@@ -2,7 +2,7 @@
 
 ## SOMMAIRE
 
-### Yarn pour installer les dépencies
+### Yarn pour installer les node_modules
 
 <br>
 
