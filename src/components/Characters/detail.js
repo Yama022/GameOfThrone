@@ -19,8 +19,13 @@ export default function Detail() {
       });
   };
 
+  const scrollTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   useEffect(() => {
     getCharacters();
+    scrollTop();
   }, [id]);
 
   return (
@@ -36,9 +41,9 @@ export default function Detail() {
           <h3>
             {
               characters?.titles.every((title) => title != 0) ? 
-              <span>Title : </span> : <span></span>}
+              <span>Title : </span> : <span></span>
+            }
               {characters?.titles}
-            
           </h3>
         </div>
 
@@ -46,7 +51,8 @@ export default function Detail() {
           <h3>
             {
               characters?.culture != 0 ?
-              <span>Culture : </span> : <span></span>}
+              <span>Culture : </span> : <span></span>
+            }
               {characters?.culture}
           </h3>
         </div>
@@ -57,7 +63,7 @@ export default function Detail() {
             <h3>
               <span>{characters?.aliases.length > 1 ?
               "Aliases " : "Alias "}</span>
-              : {characters?.aliases.join(', ') }
+              : {characters?.aliases.join(', ')}
             </h3> 
             )
           }
@@ -71,7 +77,7 @@ export default function Detail() {
                 {characters?.allegiances.length > 1 ?
                   "Allegiances " : "Allegiance "}
               </span>
-              : {characters?.allegiances.join(', ').replaceAll('https://anapioficeandfire.com/api/', '').replaceAll('s/', ' ') }
+              : {characters?.allegiances.join(', ').replaceAll('https://anapioficeandfire.com/api/', '').replaceAll('s/', ' ')}
             </h3>
             )
           }
@@ -79,47 +85,54 @@ export default function Detail() {
 
         <div className="detail__content__actor">
           <h3>
-          {
+            {
               characters?.playedBy != 0 ?
-              <span>Played by : </span> : <span></span>}
+              <span>Played by : </span> : <span></span>
+            }
               {characters?.playedBy}
-            </h3>
+          </h3>
         </div>
 
         <div className="detail__content__gender">
           <h3>
-            {characters?.gender != 0 ?
-              <span> Gender : </span> : <span></span>}
+            {
+              characters?.gender != 0 ?
+              <span> Gender : </span> : <span></span>
+            }
               {characters?.gender}
           </h3>
         </div>
 
         <div className="detail__content__born">
           <h3>
-            {characters?.born.length != 0 ?
-              <span>Born to : </span> : <span></span>}
-            {characters?.born}
+            {
+              characters?.born.length != 0 ?
+              <span>Born to : </span> : <span></span>
+            }
+              {characters?.born}
           </h3>
         </div>
 
         <div className="detail__content__died">
           <h3>
-            {characters?.died.length != 0 ?
-              <span>Died in : </span> : <span></span>}
-            {characters?.died}
+            {
+              characters?.died.length != 0 ?
+              <span>Died in : </span> : <span></span>
+            }
+              {characters?.died}
           </h3>
         </div>
 
         <div className="detail__content__books">
-            {characters?.books.every(x => x.length>0) && (
-          <h3>
-              <span>
-                {characters?.books.length > 1 ?
-                  "Books " : "Book "}
-              </span>
-            : {characters?.books.join(', ').replaceAll('https://anapioficeandfire.com/api/', '').replaceAll('s/', ' ')}
-          </h3>
-            )}
+          {characters?.books.every(x => x.length>0) && (
+            <h3>
+                <span>
+                  {characters?.books.length > 1 ?
+                    "Books " : "Book "}
+                </span>
+              : {characters?.books.join(', ').replaceAll('https://anapioficeandfire.com/api/', '').replaceAll('s/', ' ')}
+            </h3>
+          )}
         </div>
 
         <div className="detail__content__tv">
@@ -130,7 +143,6 @@ export default function Detail() {
                   "TV Series " : "TV Series "}
               </span>
             : {characters?.tvSeries.join(', ').replaceAll('https://anapioficeandfire.com/api/', '').replaceAll('s/', ' ')}
-          
           </h3>
           )}
         </div>

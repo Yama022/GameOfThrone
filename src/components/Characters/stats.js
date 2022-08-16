@@ -15,7 +15,6 @@ export default function Stats() {
       .then(response => {
           const data = response.data;
           setbooks(data);
-          // console.log(data, 'data');
         }).catch(error => {
             console.log(error);
           })
