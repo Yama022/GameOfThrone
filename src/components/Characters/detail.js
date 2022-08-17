@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import House from './house';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import './style.scss';

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Character from './character';
 import Stats from './stats';
-import Fuse from 'fuse.js'
 import { ReactSearchAutocomplete } from 'react-search-autocomplete'
 
 import './style.scss';

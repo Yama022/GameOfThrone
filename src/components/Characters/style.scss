@@ -1,16 +1,16 @@
-.characters__search {
-  width: 30%;
-  margin: auto;
-  margin-bottom: 6.5rem;
-  *div>input {
-    padding: .8rem;
-    margin: 0;
-  }
-}
 
 .characters {
   position: relative;
   z-index: 3;
+  &__search {
+    width: 30%;
+    margin: auto;
+    margin-bottom: 6.5rem;
+    *div>input {
+      padding: .8rem;
+      margin: 0;
+    }
+  }
   button {
     padding: .5em;
     margin: 1em;
