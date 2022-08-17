@@ -24,7 +24,7 @@
 <p>
   Sur la route "/" on peut retrouver :
   <li>Différentes statistiques sur les Books, Houses, Characters</li>
-  <li>Un champ de recherche pour filtrer dans les characters présents sur la page / avec fonction d'autoComplete</LI>
+  <li>Un champ de recherche pour filtrer dans les characters présents sur la page "/" avec fonction d'autoComplete</LI>
   <li>une liste de différents characters</li>
 </p>
 
