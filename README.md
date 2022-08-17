@@ -4,6 +4,8 @@
 
 ### Yarn pour installer les node_modules
 
+#### Affichage optimal en 1080p Desktop (affichage responsive non géré pour le moment)
+
 <br>
 
 <p>
