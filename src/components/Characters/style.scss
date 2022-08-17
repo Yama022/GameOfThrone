@@ -1,4 +1,12 @@
-
+.characters__search {
+  width: 30%;
+  margin: auto;
+  margin-bottom: 6.5rem;
+  *div>input {
+    padding: .8rem;
+    margin: 0;
+  }
+}
 
 .characters {
   position: relative;

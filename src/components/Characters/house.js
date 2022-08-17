@@ -41,7 +41,7 @@ export default function House() {
     })
   }
 
-  const seeCharacters = async () => {
+  const seeCharactersName = async () => {
     await axios.get(`https://anapioficeandfire.com/api/houses/${id}`)
     .then(response => {
       const data = response.data;
@@ -85,7 +85,7 @@ export default function House() {
     getHouses();
     getCharacters();
     scrollTop();
-    seeCharacters();
+    seeCharactersName();
   } , []);
 
 
@@ -214,8 +214,8 @@ export default function House() {
               ) : ''
             }
             
-              {/* TENTATIVE DE FILTRER LES MEMBRES ET AFFICHER SEULEMENT LES MEMBRES QUI SONT DANS LA LISTE DES MEMBRES.
-              IL FAUDRAIT POUVOIR FILTRER L'ENSEMBLE DES CHARACTERS/XXX POUR EN RÉCUPÉRER LE NAME ET LE URL. */}
+              {/* TENTATIVE DE FILTRE SUR LES MEMBRES D'UNE MAISON ET AFFICHER SEULEMENT LES MEMBRES QUI SONT DANS LA LISTE DES MEMBRES DE CETTE MAISON.
+              IL FAUDRAIT POUVOIR FILTRER L'ENSEMBLE DES CHARACTERS/XXX POUR EN RÉCUPÉRER LE NAME ET AINSI LES AFFICHER. */}
               {/* {
               house?.swornMembers ?  house.swornMembers.map(
                 (member, index) => {

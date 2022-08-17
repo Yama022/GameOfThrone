@@ -9,7 +9,6 @@ export default function Detail() {
   const { id } = useParams();
 
   const [characters, setCharacters] = useState(null);
-  const [house, setHouse] = useState(null);
 
   const getCharacters = async () => {
     await axios.get(`https://anapioficeandfire.com/api/characters/${id}`)
