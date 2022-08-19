@@ -186,7 +186,7 @@ export default function House() {
                     to={`/houses/${house.cadetBranches ? house.cadetBranches[index].split('/houses/')[1] : ''}`}
                     >
                     <h3>
-                      {member.slice(34)}
+                      {member.split('/api/')[1]}
                     </h3>
                   </Link>
                   )
@@ -203,10 +203,10 @@ export default function House() {
                 (member, index) => {
                   return (
                     <Link
-                    to={`/${house.swornMembers[index].slice(38)}`}
+                    to={`/${house.swornMembers[index].split('/api/')[1]}`}
                     >
                     <h3>
-                      {member.slice(38)}
+                      {member.split('/api/')[1]}
                     </h3>
                     </Link>
                   )
