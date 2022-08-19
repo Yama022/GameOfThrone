@@ -4,8 +4,6 @@
 
 ### Yarn pour installer les node_modules
 
-#### Affichage optimal en 1080p Desktop (affichage responsive non géré pour le moment)
-
 <br>
 
 <p>
@@ -49,6 +47,6 @@
 
 <p>
   Sur la page "/houses/:id on peut retrouver :
-  <li>Une liste détaillée de la House avec notamment sa région, son fondateur, ses cadets (si elle en possède) ainsi que ses membres (si elle en possède</li>
+  <li>Une liste détaillée de la House avec notamment sa région, son fondateur, ses cadets (si elle en possède) ainsi que ses membres (si elle en possède)</li>
   <li>Un lien vers les Characters sur le champ Members</li>
 </p>
