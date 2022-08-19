@@ -44,3 +44,27 @@ span {
   font-weight: 400;
   font-style: italic;
 }
+
+
+// Mobiles
+@mixin mob {
+  @media (max-width: #{vars.$mobile-breakpoint}) { 
+    @content;
+  }
+}
+
+// Tablets
+@mixin tab {
+  @media (min-width: #{vars.$mobile-breakpoint}) and (max-width: #{vars.$tablet-breakpoint}){
+    @content;
+  }
+}
+
+// Mobiles & tablets
+@mixin mobTab {
+  @media (max-width: #{vars.$tablet-breakpoint}){
+    @content;
+  }
+}
+
+

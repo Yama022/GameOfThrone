@@ -203,10 +203,10 @@ export default function House() {
                 (member, index) => {
                   return (
                     <Link
-                    to={`/${house.swornMembers[index].slice(34)}`}
+                    to={`/${house.swornMembers[index].slice(38)}`}
                     >
                     <h3>
-                      {member.slice(34)}
+                      {member.slice(38)}
                     </h3>
                     </Link>
                   )

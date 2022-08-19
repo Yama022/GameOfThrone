@@ -1,3 +1,6 @@
+@use 'src/styles/vars';
+@import 'src/styles';
+
 
 .characters {
   position: relative;
@@ -15,7 +18,26 @@
     padding: .5em;
     margin: 1em;
   }
-}
+  @include tab {
+    button {
+      font-size: 2.2rem;
+      padding: .8rem;
+    }
+    &__search {
+      width: 70%;
+    }
+  }
+
+  @include mob {
+    button {
+      font-size: 1.7rem;
+      padding: .5rem;
+    }
+    &__search {
+      width: 80%;
+    }
+    }
+  }
 
 .character {
   width: 100%;
@@ -53,6 +75,18 @@
       margin: auto;
     }
     &__button {}
+  }
+
+  @include tab {
+    font-size: 2rem;
+  }
+
+  @include mob {
+    &__content {
+      font-size: 1.7rem;
+      width: 75%;
+    }
+    
   }
   
 }
@@ -107,6 +141,21 @@
       width: 80%;
       margin: auto;
     }
+  }
+  @include tab {
+    font-size: 2.5rem;
+    &__content {
+      width: 70%;
+      margin: auto;
+    }
+  }
+
+  @include mob {
+    &__content {
+      font-size: 1.7rem;
+      width: 75%;
+    }
+    
   }
 }
 
@@ -171,6 +220,35 @@
       }
     }
   }
+  @include tab {
+    width: 100%;
+    &__content {
+      margin: auto;
+      &__members {
+        width: 90%;
+        &__member {
+          width: 70%;
+        }
+      }
+    }
+  }
+
+  @include mob {
+    &__content {
+      font-size: 1.8rem;
+      width: 100%;
+      margin: auto;
+      &__name {
+        width: 100%;
+      }
+      &__members {
+        width: 90%;
+        &__member {
+          width: 60%;
+        }
+      }
+    }
+  }
 }
 
 .stats {
@@ -181,5 +259,13 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+  }
+  @include tab {
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  @include mob {
+    display: none;
   }
 }

@@ -16,7 +16,7 @@ export default function App() {
   return (
     <div className="app">
       <BrowserRouter>
-      <div className="app--backgound"
+      <div className="app--background"
         style={{
           backgroundImage:`url(${GoT})`,
           backgroundSize: 'cover',
